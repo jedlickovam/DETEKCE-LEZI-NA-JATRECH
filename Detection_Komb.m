@@ -1,10 +1,10 @@
-%% SPC 2013
-%  Markéta Jedlièková
+% SPC 2013
+%  MarkÃ©ta JedliÃ¨kovÃ¡
 
 close all
 clear all
 
-%%  Image reading
+%  Image reading
 
 structure = load('dataCombMeta.mat');
 allCenters = []; 
@@ -42,7 +42,7 @@ for i = 1:size(structure.mask,3)
 end
 
 
-%% Získání støedù
+% ZÃ­skÃ¡nÃ­ stredÃ¹
 [ids, ctrs] =  kmeans(allCenters(:,1:2),3,'replicates', 100);
 
 color = {'b+','m+','r+','g+','c+'};
@@ -61,7 +61,7 @@ end
 chtene = find(ids==idsMin);
 chteneSouradnice = allCenters(chtene,1:4);
 
-%% Eliminace tìch kruhù které mají støedy blízko sebe
+% Eliminace tÃ¬ch kruhÃ¹ kterÃ© majÃ­ stÃ¸edy blÃ­zko sebe
 
 [id, stred] =  kmeans(chteneSouradnice(:,1:2),1,'replicates', 100);
 
@@ -76,7 +76,7 @@ for i = 1: velikost(1)
     end
 end
 
-%% zobrazeni jen chtenych kruhu
+% zobrazeni jen chtenych kruhu
 for k = 1:31
     
     %figure(2);
@@ -91,7 +91,7 @@ for k = 1:31
     viscircles(aktualni, aktualniRadii,'EdgeColor','b');
 end
 
-%% Postup
+% Postup
 
 % Vezmu data, najdu kruhy
 % najdu stredy, shlukovanim ziskam neco pribliznyho
